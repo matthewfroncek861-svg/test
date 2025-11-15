@@ -227,7 +227,7 @@ class Note extends FlxSprite
 					gfNote = true;
 				case 'Expurgation Note':
 					ignoreNote = mustPress;
-					missHealth = 9999 : 0.5;
+					missHealth = isSustainNote ? 9999 : 0.5;
 					hitCausesMiss = true;
 					lowPriority = true;
 					earlyHitMult = 0;
