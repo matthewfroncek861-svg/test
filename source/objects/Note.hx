@@ -225,6 +225,25 @@ class Note extends FlxSprite
 					noMissAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
+				case 'Expurgation Note':
+					ignoreNote = mustPress;
+					missHealth = ClientPrefs.data.unfairGimmicks ? 9999 : 0.5;
+					hitCausesMiss = true;
+					lowPriority = true;
+					earlyHitMult = 0;
+					
+					texture = 'noteSkins/haloNotes';
+					//sigh
+					if (isSustainNote)
+					{
+						rgbShader.r = 0xFF000000;
+						rgbShader.g = 0xFF000000;
+						rgbShader.b = 0xFFFF0000;
+					}
+					else
+					{
+						rgbShader.enabled = false;
+					}
 			}
 			if (value != null && value.length > 1) NoteTypesConfig.applyNoteTypeData(this, value);
 			if (hitsound != 'hitsound' && hitsoundVolume > 0) Paths.sound(hitsound); //precache new sound for being idiot-proof
